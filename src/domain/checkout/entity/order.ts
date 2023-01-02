@@ -43,7 +43,13 @@ export default class Order {
     return true;
   }
 
+  changeItems(newItems: OrderItem[]){
+    this._items = newItems;
+    this._total = this.total();
+    this.validate();
+  }
+
   total(): number {
-    return this._items.reduce((acc, item) => acc + item.price, 0);
+    return this._items.reduce((acc, item) => acc + item.totalPrice(), 0);
   }
 }

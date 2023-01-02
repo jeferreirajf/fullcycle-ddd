@@ -38,6 +38,7 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
 
   async find(id: string): Promise<Customer> {
     let customerModel;
+
     try {
       customerModel = await CustomerModel.findOne({
         where: {
